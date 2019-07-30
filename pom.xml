@@ -14,6 +14,11 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.sonarsource.scanner.maven</groupId>
+      <artifactId>sonar-maven-plugin</artifactId>
+      <version>3.2</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
@@ -32,33 +37,7 @@
           </archive>
         </configuration>
       </plugin>
-    </plugins>
-  </build>
-  <!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
-  <dependency>
-   <groupId>org.sonarsource.scanner.maven</groupId>
-     <artifactId>sonar-maven-plugin</artifactId>
-     <version>3.2</version>
-     </dependency>
-   <profiles>
- <profile>
- <id>sonar</id>
-  <activation>
-   <activeByDefault>true</activeByDefault>
-  </activation>
- <properties>
-<!-- Optional URL to server. Default value is http://localhost:9000 -->
- <sonar.host.url>
-   http://52.23.208.111:9000
- </sonar.host.url>
-  </properties>
- </profile>
- </profiles>
-<build>
-...
-    <plugins>
-    ...
-        <plugin>
+      <plugin>
             <artifactId>maven-compiler-plugin</artifactId>
             <version>3.1</version>
             <configuration>
@@ -67,7 +46,20 @@
             </configuration>
         </plugin>
     </plugins>
-</build>
-  
-
+  </build>
+  <!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
+   <profiles>
+      <profile>
+        <id>sonar</id>
+        <activation>
+          <activeByDefault>true</activeByDefault>
+        </activation>
+        <properties>
+           <!-- Optional URL to server. Default value is http://localhost:9000 -->
+           <sonar.host.url>
+             http://52.23.208.111:9000
+           </sonar.host.url>
+        </properties>
+       </profile>
+    </profiles>
 </project>
