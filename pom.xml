@@ -54,7 +54,6 @@
   </properties>
  </profile>
  </profiles>
-  </project>
 <build>
 ...
     <plugins>
@@ -69,3 +68,4 @@
         </plugin>
     </plugins>
 </build>
+</project>
